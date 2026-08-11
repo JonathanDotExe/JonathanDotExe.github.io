@@ -1,3 +1,8 @@
+---
+import Header from "../components/Header.astro";
+const pageTitle = "About Me";
+---
+
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -5,13 +10,11 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>About</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<a href="/">Home</a>
-		<a href="/about/">About</a>
-		<a href="/blog/">Blog</a>
+		<Header></Header>
 
-		<h1>Personal Blog</h1>
+        <slot></slot>
 	</body>
 </html>
