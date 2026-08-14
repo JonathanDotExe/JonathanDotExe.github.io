@@ -20,8 +20,22 @@ const { Content } = await render(post);
 
 const pageTitle = post.data.title;
 ---
+<style>
+  .meta-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+</style>
+
 <BaseLayout>
-    <h1>{post.data.title}</h1>
+    <header>
+          <h1>{post.data.title}</h1>
+          <div class="meta-line">
+            <span>{post.data.author}</span>
+            <span>{post.data.pubDate}</span>
+          </div>
+    </header>
 
     <Content />
 </BaseLayout>

@@ -6,5 +6,4 @@ author: 'Jonathan'
 tags: []
 ---
 
-# This blog works
 Yay, nothing more to see here.
