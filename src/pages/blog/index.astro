@@ -10,24 +10,57 @@ posts.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
+<style>
+  time {
+    color:gray;
+  }
+
+  .tag {
+    background-color: lightblue;
+    padding: 2px 4px;
+    border-radius: 4px;
+    margin-left: 4px;
+  }
+
+  .meta-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+</style>
+
 <BaseLayout>
     <h1>Blog</h1>
-    Irregular updates about my projects or other stuff I find intersting.
-
+    <p>
+      Irregular updates about my projects or other stuff I find intersting.
+    </p>
     <div class="posts">
         {posts.map((post) => (
-          <article>
-            <h2>{post.data.title}</h2>
-
-            <p>{post.data.description}</p>
-
-            <time datetime={post.data.pubDate.toISOString()}>
-              {post.data.pubDate.toLocaleDateString()}
-            </time>
-
-            <a href={`/blog/${post.id}/`}>
-              Read more →
-            </a>
+          <article class="w3-card w3-padding">
+            <h2 style="font-weight: bold">{post.data.title}</h2>
+            <div class="meta-line">
+              <div>
+                {
+                  post.data.tags.map((tag) => (
+                    <span class="tag">{tag}</span>
+                  ))
+                }
+              </div>
+              <div>
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {post.data.pubDate.toLocaleDateString()}
+                </time>
+              </div>
+            </div>
+            <p>
+              {post.data.description}
+            </p>
+            <p>
+              <a href={`/blog/${post.id}/`}>
+                Read more ...
+              </a>
+            </p>
           </article>
         ))}
       </div>

@@ -25,6 +25,22 @@ const pageTitle = post.data.title;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  header {
+    border-bottom: 1px solid lightgray;
+  }
+
+  time {
+    color:gray;
+  }
+
+  .tag {
+    background-color: lightblue;
+    padding: 2px 4px;
+    border-radius: 4px;
+    margin-left: 4px;
   }
 </style>
 
@@ -32,8 +48,18 @@ const pageTitle = post.data.title;
     <header>
           <h1>{post.data.title}</h1>
           <div class="meta-line">
-            <span>{post.data.author}</span>
-            <span>{post.data.pubDate}</span>
+            <div>
+              {
+                post.data.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))
+              }
+            </div>
+            <div>
+              <time datetime={post.data.pubDate.toISOString()}>
+                {post.data.pubDate.toLocaleDateString()}
+              </time>
+            </div>
           </div>
     </header>
 
