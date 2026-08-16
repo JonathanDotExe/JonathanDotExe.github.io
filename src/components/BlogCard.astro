@@ -1,0 +1,29 @@
+---
+import "../styles/global.css"
+const { id, post } = Astro.props;
+---
+<article class="w3-card w3-padding">
+    <h2 style="font-weight: bold">{post.title}</h2>
+    <div class="meta-line">
+        <div>
+        {
+            post.tags.map((tag) => (
+            <span class="tag">{tag}</span>
+            ))
+        }
+        </div>
+        <div>
+        <time datetime={post.pubDate.toISOString()}>
+            {post.pubDate.toLocaleDateString()}
+        </time>
+        </div>
+    </div>
+    <p>
+        {post.description}
+    </p>
+    <p>
+        <a href={`/blog/${id}/`}>
+        Read more ...
+        </a>
+    </p>
+</article>

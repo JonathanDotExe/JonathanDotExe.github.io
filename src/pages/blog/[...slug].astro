@@ -20,30 +20,6 @@ const { Content } = await render(post);
 
 const pageTitle = post.data.title;
 ---
-<style>
-  .meta-line {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-
-  header {
-    border-bottom: 1px solid lightgray;
-  }
-
-  time {
-    color:gray;
-  }
-
-  .tag {
-    background-color: lightblue;
-    padding: 2px 4px;
-    border-radius: 4px;
-    margin-left: 4px;
-  }
-</style>
-
 <BaseLayout>
     <header>
           <h1>{post.data.title}</h1>

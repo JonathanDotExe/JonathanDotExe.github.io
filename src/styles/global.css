@@ -16,3 +16,24 @@ h1 {
 p {
     text-align: justify;
 }
+
+
+
+.meta-line time {
+color:gray;
+}
+
+.tag {
+background-color: lightblue;
+padding: 2px 4px;
+border-radius: 4px;
+margin-left: 4px;
+}
+
+.meta-line {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+padding-bottom: 10px;
+border-bottom: 1px solid lightgray;
+}
